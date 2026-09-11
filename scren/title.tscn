@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://bar376xlv2bfk"]
+
+[ext_resource type="Script" uid="uid://npjm5j3cbd8f" path="res://scren/title.gd" id="1_ynott"]
+[ext_resource type="Texture2D" uid="uid://dpefiu6n87mwh" path="res://icon.svg" id="2_a2fj8"]
+[ext_resource type="Texture2D" uid="uid://8yd32hbana84" path="res://sprite/natural-wood-texture-background-surface-of-teak-wooden-desk-texture-free-photo.jpg" id="2_ynott"]
+
+[sub_resource type="SystemFont" id="SystemFont_66nac"]
+font_names = PackedStringArray("iannnnn-TIGER")
+font_weight = 600
+
+[sub_resource type="LabelSettings" id="LabelSettings_3wn4u"]
+line_spacing = 5.0
+font = SubResource("SystemFont_66nac")
+font_size = 93
+
+[sub_resource type="SystemFont" id="SystemFont_6lr2c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a2fj8"]
+font = SubResource("SystemFont_6lr2c")
+font_size = 25
+
+[sub_resource type="Gradient" id="Gradient_6p5hb"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_66nac"]
+gradient = SubResource("Gradient_6p5hb")
+
+[sub_resource type="SystemFont" id="SystemFont_a2fj8"]
+font_names = PackedStringArray("Comic Sans MS")
+font_weight = 999
+
+[sub_resource type="LabelSettings" id="LabelSettings_66nac"]
+font = SubResource("SystemFont_a2fj8")
+font_size = 150
+font_color = Color(0, 0, 0.40784314, 1)
+outline_size = 100
+shadow_size = 20
+shadow_color = Color(0, 0, 0, 0.5803922)
+shadow_offset = Vector2(1, 40)
+
+[node name="title" type="Node2D" unique_id=1863444018]
+script = ExtResource("1_ynott")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=307056082]
+
+[node name="play" type="Button" parent="CanvasLayer" unique_id=728930522]
+anchors_preset = -1
+anchor_left = 0.509
+anchor_right = 0.509
+offset_left = -155.52002
+offset_top = 344.0
+offset_right = 164.47998
+offset_bottom = 480.0
+
+[node name="Label" type="Label" parent="CanvasLayer/play" unique_id=756074916]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 136.0
+text = "PLAY"
+label_settings = SubResource("LabelSettings_3wn4u")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Sprite2D" parent="CanvasLayer" unique_id=1096336572]
+visible = false
+position = Vector2(640, 176.00002)
+scale = Vector2(5.625, 1.875)
+texture = ExtResource("2_a2fj8")
+
+[node name="bg" type="Sprite2D" parent="CanvasLayer" unique_id=2131011833]
+z_index = -1
+position = Vector2(639.5, 360)
+scale = Vector2(2.071885, 2.1028569)
+texture = ExtResource("2_ynott")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1998136774]
+offset_left = 120.0
+offset_top = 584.0
+offset_right = 1176.0
+offset_bottom = 680.0
+text = "A vampire survivors clone but you have to pay for the guns you rent every 15 seconds
+Try to survive 5 minutes, you'll lose if you don't have enough money to pay rent"
+label_settings = SubResource("LabelSettings_a2fj8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer" unique_id=401372039]
+modulate = Color(1, 1, 1, 0.70980394)
+z_index = -1
+z_as_relative = false
+position = Vector2(643.99994, 624)
+scale = Vector2(4.34375, 144.00003)
+texture = SubResource("GradientTexture1D_66nac")
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=27487917]
+offset_left = 200.0
+offset_top = 64.0
+offset_right = 1055.0
+offset_bottom = 269.0
+text = "Rented Gun"
+label_settings = SubResource("LabelSettings_66nac")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="button_down" from="CanvasLayer/play" to="." method="_on_play_button_down"]

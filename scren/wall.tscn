@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c81cp2haapaun"]
+
+[sub_resource type="Gradient" id="Gradient_a6h2b"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ss4wr"]
+gradient = SubResource("Gradient_a6h2b")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a6h2b"]
+size = Vector2(44, 44)
+
+[node name="wall" type="StaticBody2D" unique_id=2073608584]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=993170954]
+position = Vector2(2.4437904e-06, 9.536743e-07)
+scale = Vector2(0.17187501, 43.999996)
+texture = SubResource("GradientTexture1D_ss4wr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1584702038]
+shape = SubResource("RectangleShape2D_a6h2b")

@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://cwdwqdd4shahu"]
+
+[ext_resource type="Script" uid="uid://iwsgg5nufirh" path="res://scren/player.gd" id="1_oi24d"]
+[ext_resource type="Texture2D" uid="uid://dpefiu6n87mwh" path="res://icon.svg" id="1_xtre8"]
+[ext_resource type="Texture2D" uid="uid://euq8fkk0i8sw" path="res://sprite/p/1.png" id="2_3xn0a"]
+[ext_resource type="Texture2D" uid="uid://b5i5cgwwvvhvn" path="res://sprite/p/2.png" id="3_c13ws"]
+[ext_resource type="Script" uid="uid://rjq5pgktnqtt" path="res://scren/hp.gd" id="4_nny10"]
+[ext_resource type="Texture2D" uid="uid://c03kjqqii1rr" path="res://sprite/p/3.png" id="4_py2yj"]
+[ext_resource type="Script" uid="uid://buoocudibg503" path="res://scren/dmgl.gd" id="5_f1yrn"]
+[ext_resource type="Script" uid="uid://xqblve4c2c3a" path="res://scren/gunintervall.gd" id="6_pa8ui"]
+[ext_resource type="Script" uid="uid://cj8yl2h6f6inl" path="res://scren/speedl.gd" id="7_pa8ui"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_473yk"]
+animations = [{
+"frames": [{
+"duration": 0.6,
+"texture": ExtResource("2_3xn0a")
+}, {
+"duration": 0.6,
+"texture": ExtResource("3_c13ws")
+}, {
+"duration": 0.6,
+"texture": ExtResource("4_py2yj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vt8vq"]
+size = Vector2(75, 98.625)
+
+[node name="player" type="CharacterBody2D" unique_id=1397871073]
+script = ExtResource("1_oi24d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1233469227]
+z_index = 3
+scale = Vector2(0.20666668, 0.29333335)
+sprite_frames = SubResource("SpriteFrames_473yk")
+autoplay = "default"
+frame_progress = 0.05261639
+
+[node name="playerS" type="Sprite2D" parent="." unique_id=1737125678]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_xtre8")
+
+[node name="playerC" type="CollisionShape2D" parent="." unique_id=1758956708]
+position = Vector2(0, 0.65625)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_vt8vq")
+
+[node name="weapon" type="Node" parent="." unique_id=1446097870]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=848970301]
+layer = 2
+
+[node name="hp" type="Label" parent="CanvasLayer" unique_id=2019514989]
+anchors_preset = -1
+offset_left = 64.0
+offset_top = 128.0
+offset_right = 152.0
+offset_bottom = 152.0
+text = "HP :"
+metadata/_edit_use_anchors_ = true
+
+[node name="hp" type="Label" parent="CanvasLayer/hp" unique_id=502698765]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.76109105
+anchor_top = -5.3333335
+anchor_right = -0.76109105
+anchor_bottom = -5.3333335
+offset_left = 103.976006
+offset_top = 128.0
+offset_right = 191.97601
+offset_bottom = 152.0
+text = "0"
+script = ExtResource("4_nny10")
+metadata/_edit_use_anchors_ = true
+
+[node name="dmg" type="Label" parent="CanvasLayer" unique_id=35069179]
+anchors_preset = -1
+offset_left = 64.0
+offset_top = 208.0
+offset_right = 152.0
+offset_bottom = 232.0
+text = "Gun DMG :"
+metadata/_edit_use_anchors_ = true
+
+[node name="dmg" type="Label" parent="CanvasLayer/dmg" unique_id=1761440891]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.72700006
+anchor_top = -8.667001
+anchor_right = -0.72700006
+anchor_bottom = -8.666667
+offset_left = 151.97601
+offset_top = 208.00803
+offset_right = 239.97601
+offset_bottom = 232.0
+text = "0"
+script = ExtResource("5_f1yrn")
+metadata/_edit_use_anchors_ = true
+
+[node name="guninterval" type="Label" parent="CanvasLayer" unique_id=831609365]
+anchors_preset = -1
+offset_left = 64.0
+offset_top = 248.0
+offset_right = 152.0
+offset_bottom = 272.0
+text = "Gun Speed :"
+metadata/_edit_use_anchors_ = true
+
+[node name="guninterval" type="Label" parent="CanvasLayer/guninterval" unique_id=2096988500]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.69600004
+anchor_top = -10.333333
+anchor_right = -0.69600004
+anchor_bottom = -10.333
+offset_left = 160.03201
+offset_top = 248.0
+offset_right = 248.03201
+offset_bottom = 271.992
+text = "0"
+script = ExtResource("6_pa8ui")
+metadata/_edit_use_anchors_ = true
+
+[node name="speed" type="Label" parent="CanvasLayer" unique_id=161639728]
+anchors_preset = -1
+offset_left = 64.0
+offset_top = 168.0
+offset_right = 152.0
+offset_bottom = 192.0
+text = "Speed :"
+metadata/_edit_use_anchors_ = true
+
+[node name="speed" type="Label" parent="CanvasLayer/speed" unique_id=1238432120]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.72700006
+anchor_top = -7.0
+anchor_right = -0.72700006
+anchor_bottom = -7.0
+offset_left = 127.976006
+offset_top = 168.0
+offset_right = 215.97601
+offset_bottom = 192.0
+text = "0"
+script = ExtResource("7_pa8ui")
+metadata/_edit_use_anchors_ = true

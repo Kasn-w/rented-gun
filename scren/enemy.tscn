@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://brh6yw18bbbh8"]
+
+[ext_resource type="Script" uid="uid://cifwwoq5yct1f" path="res://scren/enemy.gd" id="1_efoyn"]
+[ext_resource type="Texture2D" uid="uid://dpefiu6n87mwh" path="res://icon.svg" id="1_ytbma"]
+[ext_resource type="Texture2D" uid="uid://cyk0obqx0vwa4" path="res://sprite/ene/1.png" id="2_c2fgw"]
+[ext_resource type="Texture2D" uid="uid://cvv1f8el5qefr" path="res://sprite/ene/2.png" id="3_bfuj8"]
+[ext_resource type="Texture2D" uid="uid://js3v8c08wvul" path="res://sprite/ene/3.png" id="4_ceju1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_synyp"]
+animations = [{
+"frames": [{
+"duration": 0.4,
+"texture": ExtResource("2_c2fgw")
+}, {
+"duration": 0.3,
+"texture": ExtResource("3_bfuj8")
+}, {
+"duration": 0.4,
+"texture": ExtResource("4_ceju1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efoyn"]
+size = Vector2(87, 86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpp6q"]
+size = Vector2(89.5, 89.5)
+
+[node name="enemy" type="CharacterBody2D" unique_id=2046597716]
+motion_mode = 1
+floor_snap_length = 0.0
+platform_on_leave = 2
+script = ExtResource("1_efoyn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=506646852]
+z_index = 1
+position = Vector2(0.18749857, 0.6734054)
+scale = Vector2(0.22462407, 0.22170424)
+sprite_frames = SubResource("SpriteFrames_synyp")
+autoplay = "default"
+
+[node name="enemyS" type="Sprite2D" parent="." unique_id=331410029]
+visible = false
+modulate = Color(1, 0.51025575, 0.44386888, 1)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_ytbma")
+
+[node name="enemyC" type="CollisionShape2D" parent="." unique_id=1743490854]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_efoyn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=711898231]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=250076707]
+position = Vector2(0.25, -0.25)
+shape = SubResource("RectangleShape2D_gpp6q")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

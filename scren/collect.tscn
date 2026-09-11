@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bx8c2c7ag6pmr"]
+
+[ext_resource type="Script" uid="uid://dd6k2apo081l4" path="res://scren/collect.gd" id="1_jbcic"]
+[ext_resource type="Texture2D" uid="uid://7ypnbenne5wi" path="res://sprite/money copy.png" id="2_jbcic"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nljtq"]
+size = Vector2(82, 56)
+
+[node name="Area2D" type="Area2D" unique_id=601606382]
+script = ExtResource("1_jbcic")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1314129416]
+modulate = Color(1.1364014, 1.1364014, 1.1364014, 1)
+position = Vector2(0.49999928, -0.27343833)
+scale = Vector2(0.16775599, 0.21475147)
+texture = ExtResource("2_jbcic")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=922366578]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_nljtq")
+
+[node name="Timer" type="Timer" parent="." unique_id=576252162]
+wait_time = 16.3
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

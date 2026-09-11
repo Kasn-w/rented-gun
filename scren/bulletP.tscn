@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bi77epp0lyjsw"]
+
+[ext_resource type="Script" uid="uid://becbod25ht50i" path="res://scren/bulletP.gd" id="1_ygjq7"]
+[ext_resource type="Texture2D" uid="uid://dpefiu6n87mwh" path="res://icon.svg" id="2_tny6o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efoyn"]
+size = Vector2(57, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpp6q"]
+size = Vector2(63, 31)
+
+[node name="bullP" type="CharacterBody2D" unique_id=2046597716]
+motion_mode = 1
+floor_snap_length = 0.0
+platform_on_leave = 2
+script = ExtResource("1_ygjq7")
+
+[node name="enemyS" type="Sprite2D" parent="." unique_id=331410029]
+modulate = Color(1, 0.51025575, 0.44386888, 1)
+position = Vector2(-1.4999976, -2.3841858e-07)
+scale = Vector2(0.4765625, 0.203125)
+texture = ExtResource("2_tny6o")
+
+[node name="enemyC" type="CollisionShape2D" parent="." unique_id=1743490854]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_efoyn")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=711898231]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=250076707]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_gpp6q")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

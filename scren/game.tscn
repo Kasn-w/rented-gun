@@ -1,0 +1,282 @@
+[gd_scene format=3 uid="uid://cqvaev05dnc5o"]
+
+[ext_resource type="PackedScene" uid="uid://cwdwqdd4shahu" path="res://scren/player.tscn" id="1_rirqo"]
+[ext_resource type="Script" uid="uid://dkamgyktp5bxx" path="res://scren/game.gd" id="1_s1ae8"]
+[ext_resource type="Script" uid="uid://27qjq6ei44ff" path="res://scren/timer.gd" id="2_2wf6e"]
+[ext_resource type="Script" uid="uid://byojpi1v58x2a" path="res://scren/label.gd" id="2_d0uhx"]
+[ext_resource type="PackedScene" uid="uid://c81cp2haapaun" path="res://scren/wall.tscn" id="2_s1ae8"]
+[ext_resource type="Script" uid="uid://dnb653opdjsym" path="res://scren/mon.gd" id="4_2wf6e"]
+[ext_resource type="Script" uid="uid://c7idejdjpu8l0" path="res://scren/rent_.gd" id="4_nbagm"]
+[ext_resource type="Script" uid="uid://dlruqfub4xprx" path="res://scren/bonus.gd" id="4_u0dh4"]
+[ext_resource type="PackedScene" uid="uid://i1duipi735ln" path="res://scren/buy.tscn" id="7_l6cxi"]
+[ext_resource type="Script" uid="uid://b5ipqma76mny2" path="res://scren/control.gd" id="8_6n184"]
+[ext_resource type="Texture2D" uid="uid://cjgwl5chtk5n" path="res://sprite/white-crumpled-lined-paper-background_53876-150112.jpg" id="10_n5kyq"]
+[ext_resource type="Texture2D" uid="uid://8yd32hbana84" path="res://sprite/natural-wood-texture-background-surface-of-teak-wooden-desk-texture-free-photo.jpg" id="11_6p5hb"]
+[ext_resource type="AudioStream" uid="uid://b2xasijwlms4o" path="res://audio/buy2.mp3" id="13_5dtmh"]
+[ext_resource type="Script" uid="uid://bqt7eyb74v0hv" path="res://scren/audio.gd" id="14_5dtmh"]
+[ext_resource type="AudioStream" uid="uid://k5ohwvj0geao" path="res://audio/gunbuy2.mp3" id="14_mhy0l"]
+
+[sub_resource type="Gradient" id="Gradient_6p5hb"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n5kyq"]
+gradient = SubResource("Gradient_6p5hb")
+
+[sub_resource type="LabelSettings" id="LabelSettings_6p5hb"]
+font_size = 18
+font_color = Color(0, 0, 0, 1)
+
+[node name="Game" type="Node2D" unique_id=1985932625]
+script = ExtResource("1_s1ae8")
+area = Rect2(-1000, -600, 2000, 1200)
+metadata/_edit_horizontal_guides_ = [-544.0, -520.0, 576.0, -560.0]
+
+[node name="rentcountdown" type="Timer" parent="." unique_id=855258797]
+wait_time = 0.3
+
+[node name="rentdue" type="Timer" parent="." unique_id=879064607 groups=["time"]]
+wait_time = 15.0
+autostart = true
+
+[node name="TimerB" type="Timer" parent="." unique_id=1212880490 groups=["time"]]
+wait_time = 30.0
+autostart = true
+
+[node name="TimerC" type="Timer" parent="." unique_id=1983386673 groups=["time"]]
+autostart = true
+
+[node name="TimerE" type="Timer" parent="." unique_id=1392800536 groups=["time"]]
+wait_time = 3.0
+autostart = true
+script = ExtResource("2_2wf6e")
+
+[node name="wall" type="Node" parent="." unique_id=1763192549]
+
+[node name="wall4" parent="wall" unique_id=1240620632 groups=["wall"] instance=ExtResource("2_s1ae8")]
+position = Vector2(-8, 760)
+scale = Vector2(59.95, 0.625)
+
+[node name="wall3" parent="wall" unique_id=2073608584 groups=["wall"] instance=ExtResource("2_s1ae8")]
+position = Vector2(-1312.0001, -6.1035156e-05)
+scale = Vector2(0.625, 34.26)
+
+[node name="wall2" parent="wall" unique_id=299576855 groups=["wall"] instance=ExtResource("2_s1ae8")]
+position = Vector2(1304, 16)
+scale = Vector2(0.625, 34.26)
+
+[node name="wall" parent="wall" unique_id=1017887916 groups=["wall"] instance=ExtResource("2_s1ae8")]
+position = Vector2(0, -736)
+scale = Vector2(59.95, 0.625)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1017356178]
+
+[node name="rent-" type="Label" parent="CanvasLayer" unique_id=1597550324]
+anchors_preset = -1
+offset_left = 60.66
+offset_top = 88.115
+offset_right = 115.65993
+offset_bottom = 112.11499
+text = "rent : "
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="rent-" type="Label" parent="CanvasLayer/rent-" unique_id=387119079]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -3.9454548
+anchor_top = -1.667
+anchor_right = -3.9454548
+anchor_bottom = -1.667
+offset_left = 264.0
+offset_top = 40.008015
+offset_right = 296.0
+offset_bottom = 63.008015
+text = "0"
+script = ExtResource("4_nbagm")
+metadata/_edit_use_anchors_ = true
+
+[node name="bonus" type="Label" parent="CanvasLayer" unique_id=521421912]
+anchors_preset = -1
+offset_left = 62.385
+offset_top = 66.0
+offset_right = 117.38493
+offset_bottom = 89.0
+text = "earn : "
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="bonus" type="Label" parent="CanvasLayer/bonus" unique_id=1512306933]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.182
+anchor_top = -2.8700001
+anchor_right = -1.182
+anchor_bottom = -2.8700001
+offset_left = 120.01001
+offset_top = 66.01
+offset_right = 152.01001
+offset_bottom = 89.01
+text = "0"
+script = ExtResource("4_u0dh4")
+metadata/_edit_use_anchors_ = true
+
+[node name="money" type="Label" parent="CanvasLayer" unique_id=1916174615]
+anchors_preset = -1
+offset_left = 64.0
+offset_top = 40.0
+offset_right = 135.0
+offset_bottom = 63.0
+text = "MONEY : "
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="money" type="Label" parent="CanvasLayer/money" unique_id=1581300241]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.8116198
+anchor_top = -1.7391304
+anchor_right = -1.8116198
+anchor_bottom = -1.7391304
+offset_left = 200.625
+offset_top = 40.0
+offset_right = 257.0
+offset_bottom = 63.0
+text = "0"
+script = ExtResource("4_2wf6e")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1417298386]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -112.0
+offset_top = 40.0
+offset_right = 113.0
+offset_bottom = 63.0
+text = "timer"
+horizontal_alignment = 1
+script = ExtResource("2_d0uhx")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=833776621]
+modulate = Color(1, 1, 1, 0.3764706)
+z_index = -5
+z_as_relative = false
+position = Vector2(144, 159.99998)
+scale = Vector2(0.75000006, 255.99997)
+texture = SubResource("GradientTexture1D_n5kyq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer" unique_id=552736949]
+modulate = Color(1, 1, 1, 0.70980394)
+z_index = -5
+z_as_relative = false
+position = Vector2(640, 52.000004)
+scale = Vector2(0.6874997, 40)
+texture = SubResource("GradientTexture1D_n5kyq")
+
+[node name="control" type="Label" parent="CanvasLayer" unique_id=252460774]
+offset_left = 56.0
+offset_top = 632.0
+offset_right = 584.0
+offset_bottom = 688.0
+text = "WASD to move,  E to open shop,  Mouse to buy,  No pause sy "
+label_settings = SubResource("LabelSettings_6p5hb")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_6n184")
+
+[node name="player" parent="." unique_id=1397871073 instance=ExtResource("1_rirqo")]
+z_index = 1
+z_as_relative = false
+
+[node name="Camera2D2" type="Camera2D" parent="player" unique_id=195942737]
+
+[node name="Area2D" parent="." unique_id=1287353540 instance=ExtResource("7_l6cxi")]
+position = Vector2(152, -88)
+
+[node name="bg" type="Node" parent="." unique_id=24069572]
+
+[node name="bg" type="Sprite2D" parent="bg" unique_id=287532000]
+modulate = Color(0.89411765, 0.89411765, 0.92156863, 1)
+z_index = -1
+position = Vector2(-656.00006, -360)
+scale = Vector2(2.1094248, 1.7751799)
+texture = ExtResource("10_n5kyq")
+
+[node name="bg2" type="Sprite2D" parent="bg" unique_id=857098217]
+modulate = Color(0.89411765, 0.89411765, 0.92156863, 1)
+z_index = -1
+position = Vector2(654.87506, -360)
+scale = Vector2(2.0994408, 1.7751799)
+texture = ExtResource("10_n5kyq")
+flip_h = true
+
+[node name="bg3" type="Sprite2D" parent="bg" unique_id=13844467]
+modulate = Color(0.89411765, 0.89411765, 0.92156863, 1)
+z_index = -1
+position = Vector2(-657.75006, 379.125)
+scale = Vector2(2.1094248, 1.7751799)
+texture = ExtResource("10_n5kyq")
+flip_v = true
+
+[node name="bg4" type="Sprite2D" parent="bg" unique_id=1523263505]
+modulate = Color(0.89411765, 0.89411765, 0.92156863, 1)
+z_index = -1
+position = Vector2(656.37506, 380)
+scale = Vector2(2.0946488, 1.7751799)
+texture = ExtResource("10_n5kyq")
+flip_h = true
+flip_v = true
+metadata/_edit_lock_ = true
+
+[node name="out" type="Node" parent="bg" unique_id=233976933]
+
+[node name="Sprite2D" type="Sprite2D" parent="bg/out" unique_id=726006411]
+z_index = -5
+position = Vector2(-1007.99994, -544)
+scale = Vector2(3.241158, 3.4742856)
+texture = ExtResource("11_6p5hb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="bg/out" unique_id=2075069535]
+z_index = -5
+position = Vector2(952.0001, -544)
+scale = Vector2(3.061093, 3.4742856)
+texture = ExtResource("11_6p5hb")
+flip_h = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="bg/out" unique_id=979205644]
+z_index = -5
+position = Vector2(-1007.99994, 648)
+scale = Vector2(3.2411582, 3.4742856)
+texture = ExtResource("11_6p5hb")
+flip_v = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="bg/out" unique_id=1258187889]
+z_index = -5
+position = Vector2(952.00006, 648)
+scale = Vector2(3.061093, 3.4742856)
+texture = ExtResource("11_6p5hb")
+flip_h = true
+flip_v = true
+metadata/_edit_lock_ = true
+
+[node name="buysound" type="AudioStreamPlayer" parent="." unique_id=1025994202]
+stream = ExtResource("13_5dtmh")
+volume_db = -7.0
+max_polyphony = 5
+script = ExtResource("14_5dtmh")
+
+[node name="gunbuysound" type="AudioStreamPlayer" parent="." unique_id=1844523701]
+stream = ExtResource("14_mhy0l")
+max_polyphony = 3
+script = ExtResource("14_5dtmh")
+
+[connection signal="timeout" from="rentcountdown" to="." method="_on_rentcountdown_timeout"]
+[connection signal="timeout" from="rentdue" to="." method="_on_rentdue_timeout"]
+[connection signal="timeout" from="TimerB" to="." method="_on_timer_b_timeout"]
+[connection signal="timeout" from="TimerC" to="." method="_on_timer_c_timeout"]
+[connection signal="timeout" from="TimerE" to="." method="_on_timer_timeout"]
+[connection signal="gameover" from="player" to="." method="_on_player_gameover"]
+[connection signal="takedamge" from="player" to="." method="_on_player_takedamge"]
+[connection signal="buyed" from="Area2D" to="." method="_on_area_2d_buyed"]

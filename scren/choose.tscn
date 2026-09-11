@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://crlldmty4chou"]
+
+[ext_resource type="Script" uid="uid://61vjymn4ap56" path="res://scren/choose.gd" id="1_mssjn"]
+
+[node name="Control" type="Control" unique_id=1130534115]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mssjn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=356026032]
+layer = 3
+
+[node name="c3" type="Button" parent="CanvasLayer" unique_id=30650202]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.089
+anchor_right = 0.5
+anchor_bottom = 0.089
+offset_left = 232.0
+offset_top = -0.08000183
+offset_right = 568.0
+offset_bottom = 421.91998
+size_flags_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="c2" type="Button" parent="CanvasLayer" unique_id=362672009]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.089
+anchor_right = 0.5
+anchor_bottom = 0.089
+offset_left = -168.0
+offset_top = -0.08000183
+offset_right = 168.0
+offset_bottom = 421.91998
+size_flags_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="c1" type="Button" parent="CanvasLayer" unique_id=303660767]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.089
+anchor_right = 0.5
+anchor_bottom = 0.089
+offset_left = -576.0
+offset_top = -0.08000183
+offset_right = -240.0
+offset_bottom = 421.91998
+size_flags_horizontal = 0
+icon_alignment = 1
+vertical_icon_alignment = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="re" type="Button" parent="CanvasLayer" unique_id=522656588]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.089
+anchor_right = 0.5
+anchor_bottom = 0.089
+offset_left = -576.0
+offset_top = 479.91998
+offset_right = -43.0
+offset_bottom = 605.92
+size_flags_horizontal = 0
+text = "Reload Shop : Cost 200"
+metadata/_edit_use_anchors_ = true
+
+[node name="exit" type="Button" parent="CanvasLayer" unique_id=1924214126]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.089
+anchor_right = 0.5
+anchor_bottom = 0.089
+offset_left = 40.0
+offset_top = 479.91998
+offset_right = 573.0
+offset_bottom = 605.92
+size_flags_horizontal = 0
+text = "Exit"
+metadata/_edit_use_anchors_ = true
+
+[node name="1" type="Label" parent="CanvasLayer" unique_id=1538758993]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.089
+anchor_right = 0.5
+anchor_bottom = 0.089
+offset_left = -544.0
+offset_top = 287.91998
+offset_right = -270.0
+offset_bottom = 392.91998
+text = "description here"
+horizontal_alignment = 1
+
+[node name="2" type="Label" parent="CanvasLayer" unique_id=1172545200]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.089
+anchor_right = 0.5
+anchor_bottom = 0.089
+offset_left = -144.0
+offset_top = 295.91998
+offset_right = 130.0
+offset_bottom = 400.91998
+rotation = 0.0040225345
+text = "description here"
+horizontal_alignment = 1
+
+[node name="3" type="Label" parent="CanvasLayer" unique_id=875385740]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.089
+anchor_right = 0.5
+anchor_bottom = 0.089
+offset_left = 265.0
+offset_top = 298.91998
+offset_right = 539.0
+offset_bottom = 403.91998
+text = "description here"
+horizontal_alignment = 1
+
+[connection signal="button_down" from="CanvasLayer/c3" to="." method="_on_c_3_button_down"]
+[connection signal="button_down" from="CanvasLayer/c2" to="." method="_on_c_2_button_down"]
+[connection signal="button_down" from="CanvasLayer/c1" to="." method="_on_c_1_button_down"]
+[connection signal="button_down" from="CanvasLayer/re" to="." method="_on_re_button_down"]
+[connection signal="button_down" from="CanvasLayer/exit" to="." method="_on_exit_button_down"]

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dal4cvahycoy2"]
+
+[ext_resource type="Script" uid="uid://couaja5wvh6pg" path="res://scren/countdowncanvas.gd" id="1_ubj2h"]
+[ext_resource type="Script" uid="uid://iktqc6ly2lpe" path="res://scren/countdown.gd" id="1_wjnb4"]
+
+[sub_resource type="SystemFont" id="SystemFont_8dnxr"]
+font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_fihl8"]
+font = SubResource("SystemFont_8dnxr")
+font_size = 300
+font_color = Color(1, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=401665199 node_paths=PackedStringArray("countdown")]
+script = ExtResource("1_ubj2h")
+countdown = NodePath("countdown")
+
+[node name="countdown" type="Label" parent="." unique_id=1072775919]
+modulate = Color(1, 1, 1, 0.3019608)
+anchors_preset = -1
+offset_right = 1280.0
+offset_bottom = 720.0
+text = "0"
+label_settings = SubResource("LabelSettings_fihl8")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_wjnb4")
+metadata/_edit_use_anchors_ = true

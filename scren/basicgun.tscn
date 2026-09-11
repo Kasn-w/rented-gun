@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cxajw8xe06tg0"]
+
+[ext_resource type="Script" uid="uid://cxamdp23x7vtv" path="res://scren/basicgun.gd" id="1_chj0x"]
+[ext_resource type="AudioStream" uid="uid://b0pro0x7c0yu8" path="res://audio/shoot.wav" id="2_ke710"]
+[ext_resource type="Script" uid="uid://bqt7eyb74v0hv" path="res://scren/audio.gd" id="3_ng25s"]
+
+[node name="basicgun" type="Node2D" unique_id=1903837599]
+script = ExtResource("1_chj0x")
+
+[node name="Timer" type="Timer" parent="." unique_id=1517394305]
+autostart = true
+
+[node name="gunshoot" type="AudioStreamPlayer" parent="." unique_id=1703917057]
+stream = ExtResource("2_ke710")
+volume_db = -12.0
+script = ExtResource("3_ng25s")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

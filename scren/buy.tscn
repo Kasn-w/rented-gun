@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://i1duipi735ln"]
+
+[ext_resource type="Script" uid="uid://5omimt0gqwpo" path="res://scren/buy.gd" id="1_c0ppl"]
+[ext_resource type="Texture2D" uid="uid://dpefiu6n87mwh" path="res://icon.svg" id="1_ltqt4"]
+[ext_resource type="Texture2D" uid="uid://b6nc3wknjo85j" path="res://sprite/buy/4.png" id="3_ir0km"]
+[ext_resource type="PackedScene" uid="uid://crlldmty4chou" path="res://scren/choose.tscn" id="3_jk3bm"]
+[ext_resource type="Texture2D" uid="uid://dlqc7u4ek3odu" path="res://sprite/buy/2.png" id="4_ssl2b"]
+[ext_resource type="Texture2D" uid="uid://cehnyacswaqhb" path="res://sprite/buy/3.png" id="5_kteku"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f4nqs"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("3_ir0km")
+}, {
+"duration": 0.6,
+"texture": ExtResource("4_ssl2b")
+}, {
+"duration": 0.4,
+"texture": ExtResource("5_kteku")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0ppl"]
+size = Vector2(182.5, 143.5)
+
+[sub_resource type="Gradient" id="Gradient_6p5hb"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jk3bm"]
+gradient = SubResource("Gradient_6p5hb")
+
+[node name="Area2D" type="Area2D" unique_id=1287353540]
+script = ExtResource("1_c0ppl")
+
+[node name="Timer" type="Timer" parent="." unique_id=56958297]
+wait_time = 22.0
+autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=412898681]
+z_index = 2
+position = Vector2(0, 7.1054274e-15)
+scale = Vector2(0.30653948, 0.3065395)
+sprite_frames = SubResource("SpriteFrames_f4nqs")
+autoplay = "default"
+frame_progress = 0.92077124
+speed_scale = 0.3
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=909660441]
+modulate = Color(0, 0.012920001, 0.33183005, 0.39000002)
+z_index = 1
+position = Vector2(-3.9999993, 52)
+scale = Vector2(1.3124999, 0.18749999)
+texture = ExtResource("1_ltqt4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2090272976]
+position = Vector2(-3.25, 0.25)
+shape = SubResource("RectangleShape2D_c0ppl")
+
+[node name="Label" type="Label" parent="." unique_id=912020144]
+z_index = 2
+offset_left = -33.0
+offset_top = 62.0
+offset_right = 36.0
+offset_bottom = 95.0
+text = "E to buy"
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1551734544]
+modulate = Color(1, 1, 1, 0.70980394)
+z_index = 1
+z_as_relative = false
+position = Vector2(-1, 76)
+scale = Vector2(0.3046875, 28.000002)
+texture = SubResource("GradientTexture1D_jk3bm")
+
+[node name="Control" parent="." unique_id=1130534115 instance=ExtResource("3_jk3bm")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="buyed" from="Control" to="." method="_on_control_buyed"]

@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://bv43kpfnu3hse"]
+
+[ext_resource type="Script" uid="uid://dyrpunwgu56ks" path="res://scren/lose.gd" id="1_3trm4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vp5gy"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_yi81r"]
+font_size = 100
+
+[sub_resource type="Gradient" id="Gradient_nbagm"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3trm4"]
+gradient = SubResource("Gradient_nbagm")
+
+[node name="Control" type="Control" unique_id=1565979743]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3trm4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1950419021]
+
+[node name="l" type="Label" parent="CanvasLayer" unique_id=705621428]
+offset_left = 408.0
+offset_top = 280.0
+offset_right = 741.0
+offset_bottom = 349.0
+text = "Time survive :"
+label_settings = SubResource("LabelSettings_vp5gy")
+
+[node name="Label2" type="Label" parent="CanvasLayer/l" unique_id=305157079]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.225
+anchor_top = -4.058
+anchor_right = -1.225
+anchor_bottom = -4.058
+offset_left = 759.92505
+offset_top = 280.002
+offset_right = 1055.925
+offset_bottom = 349.002
+text = "0"
+label_settings = SubResource("LabelSettings_vp5gy")
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=933598880]
+offset_left = 456.0
+offset_top = 56.0
+offset_right = 910.0
+offset_bottom = 193.0
+text = "You LOSE"
+label_settings = SubResource("LabelSettings_yi81r")
+
+[node name="exit" type="Button" parent="CanvasLayer" unique_id=1197583403]
+anchors_preset = -1
+anchor_left = -0.0125
+anchor_right = -0.0125
+offset_left = 408.0
+offset_top = 536.0
+offset_right = 941.0
+offset_bottom = 662.0
+size_flags_horizontal = 0
+text = "Exit to main menu"
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=261899827]
+modulate = Color(1, 1, 1, 0.47058824)
+z_index = -5
+z_as_relative = false
+position = Vector2(666.00006, 255.99997)
+scale = Vector2(3.171875, 480)
+texture = SubResource("GradientTexture1D_3trm4")
+
+[connection signal="button_down" from="CanvasLayer/exit" to="." method="_on_exit_button_down"]
